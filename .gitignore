@@ -1,18 +1,362 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Formula calculator by Sharoon</title>
+   <style>
+   button{
+   font-size: 36px;
+   padding: 15px;
+   font-weight: bold;
+   }
+   
+   input {
+   		font-size: 45px;
+   		background: lightgrey;
+   }
+   			 select {
+   			 			font-size: 40px;	
+   			 }
+   </style>
+<h1 style="text-align: center;font-size:100px;">Special calculator</h1>
+<div><button onclick="reload()" style="color:red;">reload</button></div>
+<p id="menua"></p>
+<div style="text-align: right; padding: 0px 20px 0px 0px;">
+				<button onclick="menu()" style="background:#fff12b; color: black;">Menu</button>
+</div>
+</head>
+<body style="font-size:40px; padding:5px; width:1100px;" id="body">
+<div style="border:5px solid black; padding:5px">
+				<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Circle</u></h1>
+				<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help1()" style="color:green;">Help</button>
+				</div>
+				<p id="help1"></p>
+				
+			Radius :	<input type="number" id="simc">
+<p>Area of circle = <b>&pi;r<sup>2</sup></b>  or; (22/7 x r x r)</p>
+   <p id="sim"></p>
+<button onclick="sam()">calculate</button>
+<br><br>
+<p>Area of circumference = <b>2&pi;r</b>  or;  (2 x 22/7 x r)</p>
+<p id="sim2"> </p>
+<button onclick="sam2()">calculate</button>
+<p>Area of semicircle = <b>1/2 x &pi; x r<sup>2</sup></b></p>
+<p id="cir3"></p>
+<button onclick="sam3()">calculate</button>
+</div>
 
-# Other files and folders
-.settings/
+<br>
+<div style="border:5px solid black; padding:5px">	<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Square</u></h1>
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help2()" style="color:green;">Help</button>
+				</div>
+				<p id="help2"></p>
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+side or length :<input type="number" id="squ1"><br><br>
+<p>Area of square = <b>side x side</b></p>
+<p id="sims1"> </p>
+<button onclick="sams1()">calculate</button><br>
+<p>Perimeter of square = <b>length x 4</b></p>
+<p id="sims2"></p>
+<button onclick="sams2()">calculate</button>
+</div>
+<br>
+<div style="border:5px solid black; padding:15px">	<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Rectangle-area</u></h1>
+
+<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help3()" style="color:green;">Help</button>
+				</div>
+				<p id="help3"></p>
+				
+Area: <input type="number" id="arear1" placeholder=" Used to find breadth / length">
+<br><br>
+Length: <input type="number" id="lengthr" min="0"><br><br>
+Breadth: <input type="number" id="breadthr" min="0">
+<p>Area of rectangle = <b>length x breadth</b></p>
+<p id="arear"></p>
+<button onclick="samr1()">Calculate Area</button>
+<p>Length = <b>Area/breadth</b></p>
+<p id="lengthr1"></p>
+<button onclick="samr2()">Calculate length</button>
+<br>
+<p>Breadth = <b>Area/length</b></p>
+<p id="breadthr1"></p>
+<button onclick="samr3()">Calculate breadth</button></div>
+<br>
+<div style="border:5px solid black; padding:15px">
+          <h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Rectangle-perimeter</u></h1>
+          
+          <div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help4()" style="color:green;">Help</button>
+				</div>
+				<p id="help4"></p>
+          
+Perimeter: <input type="number" id="arear4" placeholder=" Used to find breadth / length">
+<br><br>
+Length: <input type="number" id="lengthrp"><br><br>
+Breadth: <input type="number" id="breadthrp">
+<p>Perimeter of rectangle = <b>2(length+breadth)</b></p>
+<p id="arear2"></p>
+<button onclick="samrp1()">Calculate Perimeter</button>
+<p>length = <b>[perimeter-(breadth x 2)/2]</b></p>
+<p id="lengthr2"></p>
+<button onclick="samrp2()">calculate length</button>
+<p>Breadth = <b>[perimeter-(length x 2)/2]</b></p><p id="breadthr2"></p>
+<button onclick="samrp3()">calculate breadth</button>
+</div><br>
+<div style="border:5px solid black; padding:15px">
+				<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Triangle-area</u></h1>
+				
+				<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help5()" style="color:green;">Help</button>
+				</div>
+				<p id="help5"></p>
+				
+				Area :<input type="number" id="triain" placeholder="Used to find base / height"><br><br>
+Base :<input type="number" id="tribin"><br><br>
+	Height :<input type="number" id="trihin">
+				<p>Area of Triangle = <b>1/2 x base x height</b></p>
+				<p id="triarea"></p>
+				<button onclick="triarea()">calculate</button>
+				<p>Base = <b>area / (1/2*height)</b></p>
+				<p id="tribase"></p>
+				<button onclick="tribase()">calculate Base</button>
+				<p>Height = <b>area / (1/2*base)</b></p>
+				<p id="triheight"></p>
+				<button onclick="triheight()">calculate Height</button>
+</div><br>
+
+
+<div style="border:5px solid black; padding:15px">
+				<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Square and cube root</u></h1>
+<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help6()" style="color:green;">Help</button>
+				</div>
+				<p id="help6"></p>
+		Value :	<input type="number" id="sqcb"><br>
+		<br><label for="sqval">Square root = </label>
+		<p id="sqval"></p>
+		<button onclick="sqval()">Calculate</button>
+	<br>	<br><label for="cbval">Cube root = </label>
+		<p id="cbval"></p>
+		<button onclick="cbval()">Calculate</button>
+</div>
+<br>
+<div style="border:5px solid black; padding:15px">
+				<h1 style="text-align:center;font-weight:bold;font-size:60px; "><u>Exponent-value</u></h1>
+<div style="text-align: right; padding:0px 20px 0px 0px">
+								<button onclick="help7()" style="color:green;">Help</button>
+				</div>
+				<p id="help7"></p>
+<input type="number" placeholder="Base" id="base" style="font-weight: bold; width:200px">
+				<input type="number" placeholder="Power" id="exponent" style="width:200px"><br><br> value = <p id="sums1"></p><button onclick="sums1()">calculate</button></div>
+<br><br>
+<hr>
+<p style="text-align: right; padding: 0px 20px 0px 0px;"><em>- created by<b> Sharoon</b></em></p>
+<hr style="border : 10px solid black">
+<button onclick="inreport()">Give a suggestion</button><p id="report"></p>
+<p style='text-align: center; color:#aab5ff'>Model - 2</p>
+<script>
+				function sums1() {
+		var base = parseFloat(document.getElementById("base").value);				
+		var expo = parseFloat(document.getElementById("exponent").value);
+		var sum = Math.pow(base,expo);
+		document.getElementById("sums1").innerHTML=sum;	
+		}
+function sam(){
+   var p = parseFloat(document.getElementById("simc").value);
+var area = 3.141592653589793238*p*p ;
+document.getElementById("sim").innerHTML=area;
+}
+
+function sams1(){
+var s = parseFloat(document.getElementById("squ1").value);
+  var area = s*s;
+document.getElementById("sims1").innerHTML="area :"+area;
+}
+function sams2(){
+var le = parseFloat(document.getElementById("squ1").value);
+  var area = le*4;
+document.getElementById("sims2").innerHTML="perimeter :"+area;
+}
+function sam2(){
+var c = parseFloat(document.getElementById("simc").value);
+var area = 2*3.141592653589793238*c;
+document.getElementById("sim2").innerHTML=area;
+}
+function sam3() {
+				var vb = parseFloat(document.getElementById("simc").value);
+				var cb = 1/2*3.141592653589793238*vb*vb;
+				document.getElementById("cir3").innerHTML="area :"+cb;
+}
+function samr1(){
+var br = parseFloat (document.getElementById("lengthr").value);
+var rb = parseFloat(document.getElementById("breadthr").value);
+var area = br*rb;
+document.getElementById("arear").innerHTML="area :"+area;
+}
+function samr2() {
+var ar = parseFloat (document.getElementById("arear1").value);
+var br = parseFloat(document.getElementById("breadthr").value);
+var length = ar/br;
+document.getElementById("lengthr1").innerHTML="Length :"+length;
+}
+function samr3() {
+var ar = parseFloat (document.getElementById("arear1").value);
+var le = parseFloat(document.getElementById("lengthr").value);
+var breadth = ar/le;
+document.getElementById("breadthr1").innerHTML="Breadth :"+breadth;
+}
+function samrp1(){
+var br = parseFloat (document.getElementById("lengthrp").value);
+var rb = parseFloat(document.getElementById("breadthrp").value);
+var area = 2*br+2*rb;
+document.getElementById("arear2").innerHTML="perimeter :"+area;
+}
+function samrp2() {
+	var b1 = parseFloat (document.getElementById("breadthrp").value);
+	var b2 = 2*b1;
+	var b3 = parseFloat (document.getElementById("arear4").value);
+	var b4 = b3-b2;
+	var b5 = b4/2
+document.getElementById("lengthr2").innerHTML="length :"+b5;
+}
+function samrp3() {
+	var l1 = parseFloat (document.getElementById("lengthrp").value);
+	var l2 = 2*l1;
+	var l3 = parseFloat (document.getElementById("arear4").value);
+	var l4 = l3-l2;
+	var l5 = l4/2
+document.getElementById("breadthr2").innerHTML="length :"+l5;
+}
+	function triarea() {
+			var base = parseFloat(document.getElementById("tribin").value);
+			var hei = parseFloat(document.getElementById("trihin").value);
+			var area = 1/2*base*hei;
+ document.getElementById("triarea").innerHTML="area :"+area
+	}
+	function tribase() {
+					var area = parseFloat(document.getElementById("triain").value);
+			var hei = parseFloat(document.getElementById("trihin").value);
+			var base1 = 1/2*hei;
+		var base = area/base1;
+ document.getElementById("tribase").innerHTML="base :"+base;
+	}
+	function triheight() {
+					var area = parseFloat(document.getElementById("triain").value);
+			var base = parseFloat(document.getElementById("tribin").value);
+			var hei1 = 1/2*base;
+		var hei = area/hei1;
+ document.getElementById("triheight").innerHTML="height :"+hei;
+	}
+function sqval() {
+var sq =	parseFloat(document.getElementById("sqcb").value);	
+var sqroot = Math.sqrt(sq);
+document.getElementById("sqval").innerHTML=sqroot;
+}	
+function cbval() {
+var cb =	parseFloat(document.getElementById("sqcb").value);	
+var cbroot = Math.cbrt(cb);
+document.getElementById("cbval").innerHTML=cbroot;
+}	
+	
+function reload (){
+				location.reload();
+}
+function inreport() {
+				document.getElementById("report").innerHTML="<input type='number' placeholder='password' id='password' required><button onclick='report()'>Submit</button>";
+}
+function report() {
+var password=document.getElementById("password").value;
+if(password === "280421") {	document.getElementById("report").innerHTML="You can give me a suggestion at <a href='https://SHAROON'>Telegram</a> or <a href='https://wa.me/919307'>What'sapp</a> or at <a href='mailto:sharoon@outlook.com'>Email</a> Thank you! for visiting.";
+}else{
+			document.getElementById("report").innerHTML="you can give me suggestion at <a href='mail: sharoon@outlook.com'>Email.</a>"
+}
+}
+function help1() {
+				document.getElementById("help1").innerHTML="# first input the Radius to get Area of circle/circumference/semicircle."+"<p># only one input box is provided for all following circle solutions.</p>"+"<p># after inputting click on calculate to get Answer.</p>"+"<p># &pi; is called as Pi.</p>"+"<p># &pi; value = 22/7 or 3.14.</p>"+"<p># click on reload button to clear all solutions.</p>"+"<p># click on hide-help button to hide.</p>"+"<button onclick='hide1()' style='color:blue;'>hide-help</button>";
+}
+function hide1() {
+				document.getElementById("help1"). innerHTML=" ";
+}
+function help2() {
+				document.getElementById("help2"). innerHTML="# First input the Side to get Area and, Length to get Perimeter."+"<p># only one input box is provided for all following square solutions.</p>"+"<br><button onclick='hide2()' style='color: blue;'>hide-help</button>";
+}
+function hide2(){
+document.getElementById("help2"). innerHTML=" ";
+}
+function help3() {
+				document.getElementById("help3"). innerHTML="# First input the Length and then Breadth to get Area of Rectangle."+"<p># input Area and Breadth to get Length.</p>"+"<p># input Area and Length to get Breadth</p>"+"<p># / = divide or by.</p>"+"<button onclick='hide3()' style='color: blue;'>hide-help</button>";
+}
+function hide3() {
+				document.getElementById("help3"). innerHTML=" ";
+}
+function help4() {
+				document.getElementById("help4"). innerHTML="# First input Length and then Breadth to get Perimeter."+"<p># input Perimeter and Breadth to get Length.</p>"+"<p># input Perimeter and Length to get Breadth.</p>"+"<button onclick='hide4()' style='color: blue;'>hide-help</button>";
+}
+function hide4() {
+				document.getElementById("help4"). innerHTML=" ";
+}
+function help5() {
+				document.getElementById("help5"). innerHTML="# First input Length and then Base to get Area."+"<p># input Area and Base to get Length.</p>"+"<p># input Area and Length to get Base.</p>"+"<p># / = divide or by.</p>"+"<button onclick='hide5()' style='color: blue;'>hide-help</button>";
+}
+function hide5() {
+				document.getElementById("help5"). innerHTML=" ";
+}
+function menu() {
+	document.getElementById("menua").innerHTML="<div style='border:5px solid black; padding:5px;text-align: center; width:400px;' id='menuua'><p onclick='theme()'>Theme</p><p id='themes'></p><hr><p onclick='helpm()'>Help</p><p id='helpm'></p><hr><button onclick='menuda()'>Hide</button></div>"
+	}
+	function help6() {
+				document.getElementById("help6"). innerHTML="# First input a value to get square root or cube root of the value.<p># Formulas are not given.</p>"+"<button onclick='hide6()' style='color: blue;'>hide-help</button>";
+}
+function hide6() {
+				document.getElementById("help6"). innerHTML=" ";
+				}
+	function help7() {
+				document.getElementById("help7"). innerHTML="# First input Exponent and its power to get value."+"<br><br><button onclick='hide7()' style='color: blue;'>hide-help</button>";
+}
+function hide7() {
+				document.getElementById("help7"). innerHTML=" ";
+}
+	function helpm() {
+			document.getElementById("menuua").style.width="1000px";
+document.getElementById("helpm"). innerHTML="<div style='text-align:left;'>• This calculater is used to find area, perimeter,base, length and breadth.<p>• Each section have a help button to understand better.</p><p>• Click on hide-help button to hide Help.</p><p>• To change Theme Click on themes and select a color then click on apply.</p><p>• To reload or to refresh page click on Reload.</p><p>• To give a suggestion for me click on give a suggestion button and type password.</p><p>• Input only numbers in the box to get solution.</p><p>• In your notes write the answer still two or three numbers after decimal point.<p>Ex : 2636.62553772</p><p>write only 2636.62 or 2636.625</p></p><p>• Try to understand the formulas and calculater : ).</p><br><br></div><button onclick='hidemhelp()' style='color: indigo;'>Hide-help</button>";
+			}
+							function hidemhelp() {	document.getElementById("menuua").style.width="400px";
+document.getElementById("helpm").innerHTML=" "	;
+}
+			function menuda() {
+							document.getElementById("menua"). innerHTML=" ";
+			}
+			function theme() {
+				document.getElementById("themes"). innerHTML="<select id='themesi'><option value='Normal'>Normal</option><option value='Red'>Red</option><option value='Green'>Green</option><option value='Blue'>Blue</option><option value='Pink'>Pink</option><option value='dark'>Dark</option></select><br><br><button onclick='apply()'>Apply</button>";
+			}
+			function apply() {
+var them=document.getElementById("themesi"). value	;		
+if(them === "Normal") {
+document.getElementById("body").style.background="white";	
+document.getElementById("body").style.color="black";
+}
+if(them === "Red") {
+document.getElementById("body").style.background="red";	
+document.getElementById("body").style.color="white";
+}	
+if(them === "Green") {
+document.getElementById("body").style.background="lightgreen";	document.getElementById("body").style.color="#1d003d";
+}			
+if(them === "Blue") {
+document.getElementById("body").style.background="lightblue";	document.getElementById("body").style.color="black";
+}	
+if(them === "Pink") {
+document.getElementById("body").style.background="#ff80dd";	
+document.getElementById("body").style.color="white";
+}
+if(them === "dark") {
+document.getElementById("body").style.background="#323b63";
+document.getElementById("body").style.color="white";
+}
+			}
+ </script>
+</body>
+</html>
